@@ -1,0 +1,20 @@
+services:
+  airflow:
+    image: apache/airflow:2.10.2
+    restart: always
+    env_file:
+      - ./airflow.env
+    environment:
+      AIRFLOW__CORE__EXECUTOR: SequentialExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: sqlite:////opt/airflow/airflow.db
+      AIRFLOW__CORE__FERNET_KEY: ''
+      #AIRFLOW__CORE__LOAD_EXAMPLES: 'true'
+    volumes:
+      - ./airflow/dags:/opt/airflow/dags
+      - ./airflow/logs:/opt/airflow/logs
+      - ./airflow/plugins:/opt/airflow/plugins
+      - ./lab/temp:/lab/temp
+      - ./airflow/entrypoint.sh:/entrypoint.sh
+    ports:
+      - "8080:8080"
+    command: ["bash", "/entrypoint.sh"]

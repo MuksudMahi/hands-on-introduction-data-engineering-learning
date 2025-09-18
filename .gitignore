@@ -4,3 +4,7 @@ node_modules
 npm-debug.log
 *~
 lab/
+*.env
+logs/
+__pycache__/
+pipfile

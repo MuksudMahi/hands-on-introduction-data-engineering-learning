@@ -8,3 +8,6 @@ lab/
 logs/
 __pycache__/
 pipfile
+Pipfile.lock
+.vscode/
+.venv/

@@ -15,6 +15,7 @@ services:
       - ./airflow/plugins:/opt/airflow/plugins
       - ./lab/temp:/lab/temp
       - ./lab/orchestrated:/lab/orchestrated
+      - ./lab/end-to-end:/lab/end-to-end
       - ./airflow/entrypoint.sh:/entrypoint.sh
     ports:
       - "8080:8080"

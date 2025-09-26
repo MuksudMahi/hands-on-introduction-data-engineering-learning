@@ -16,6 +16,7 @@ services:
       - ./lab/temp:/lab/temp
       - ./lab/orchestrated:/lab/orchestrated
       - ./lab/end-to-end:/lab/end-to-end
+      - ./lab/challenge:/lab/challenge
       - ./airflow/entrypoint.sh:/entrypoint.sh
     ports:
       - "8080:8080"

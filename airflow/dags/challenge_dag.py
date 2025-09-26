@@ -31,6 +31,7 @@ with DAG(
         today = date.today() 
         df = pd.read_csv('/lab/challenge/constituents.csv')
         count_df = df.groupby('Sector').size().reset_index(name='Count')
+        count_df['Date'] = today.strftime("%Y-%m-%d")
         count_df.to_csv('/lab/challenge/constituents-transformed.csv', index=False)
 
     transform = PythonOperator(
